@@ -10,7 +10,7 @@ for child in p.iterdir():
        workbooks.append(str(child))
 
 wookbook1= openpyxl.load_workbook(workbooks[0])
-worksheet1 =wookbook1.active
+worksheet1 = wookbook1.active
 
 wookbook2= openpyxl.load_workbook(workbooks[1])
 worksheet2 = wookbook2.active
@@ -32,7 +32,6 @@ for row  in worksheet1.values:
 for row  in worksheet2.values:
     cur.execute("insert into data2 values (?, ?)", row)
     
-    
 cur.execute("""
     SELECT id, SUM(value) as value
         FROM
@@ -47,3 +46,5 @@ cur.execute("""
 result = cur.fetchall()
 for i in result:
     print(i)
+
+input()
